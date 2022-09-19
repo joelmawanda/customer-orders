@@ -28,16 +28,4 @@ public class OrdersService {
         return created_order;
     }
 
-//    public Customer createCustomer(Customer customer) {
-//        log.info("creating new order...");
-//
-//        Customer created_customer = customerRepository.save(customer);
-//
-//        customer.getOrders().stream()
-//                .forEach(order -> {
-//                    ordersService.createOrder(order);
-//                });
-//
-//        return created_customer;
-//    }
 }
