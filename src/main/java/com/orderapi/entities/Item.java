@@ -35,8 +35,8 @@ public class Item {
 //    @Column(nullable = false)
     private Double price;
 
-    @JsonBackReference(value = "oders-items")
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Set<Orders> orders = new HashSet<>();
+//    @JsonBackReference(value = "oders-items")
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private Set<Orders> orders = new HashSet<>();
 }

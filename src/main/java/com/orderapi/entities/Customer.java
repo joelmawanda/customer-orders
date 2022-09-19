@@ -1,8 +1,8 @@
 package com.orderapi.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,12 +16,13 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity(name="customer")
-@Table(name="customer")
-public class Customer {
+@Entity(name = "customer")
+@Table(name = "customer")
+public class Customer implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="customer_id")
+    @Column(name = "customer_id")
     private Integer customerId;
 
     @NotBlank(message = "Firstname  cannot be blank")
@@ -49,6 +50,6 @@ public class Customer {
     private String email;
 
 //    @JsonManagedReference(value = "customer-orders")
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "customers")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
     private Set<Orders> orders = new HashSet<>();
 }

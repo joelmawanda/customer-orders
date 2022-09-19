@@ -3,29 +3,26 @@ package com.orderapi.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity(name="orders")
-@Table(name="orders")
-public class Orders {
+@Entity(name = "orders")
+@Table(name = "orders")
+public class Orders implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="orders_id")
+    @Column(name = "orders_id")
     private Integer ordersId;
 
 //    @NotBlank(message = "orderNumber  cannot be blank")
@@ -48,13 +45,13 @@ public class Orders {
     private Boolean discount;
 
     //@JsonBackReference(value = "shareholder-tax-rate")
-    @OneToOne(fetch = FetchType.EAGER, optional = true)
-    @JoinColumn(name = "item_id", foreignKey = @ForeignKey(name = "item_id_fk"), nullable = true)
-    private Item item;
+//    @OneToOne(fetch = FetchType.EAGER, optional = true)
+//    @JoinColumn(name = "item_id", foreignKey = @ForeignKey(name = "item_id_fk"), nullable = true)
+//    private Item item;
 
     @JsonBackReference(value = "customers-orders1")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", foreignKey = @ForeignKey(name = "customer_id_fk"), nullable = true)
-    private Customer customers;
+    private Customer customer;
 
 }

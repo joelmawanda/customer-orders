@@ -1,2 +1,16 @@
-com/orderapi/config/db/PostgresDbConfig.class
+com/orderapi/repositories/ItemRepository.class
+com/orderapi/configurations/Constants.class
+com/orderapi/repositories/CustomerRepository.class
+com/orderapi/entities/Customer.class
+com/orderapi/entities/Item.class
+com/orderapi/entities/Orders.class
+com/orderapi/exceptions/ApplicationExceptionHandler.class
+com/orderapi/dto/CustomerDTO.class
+com/orderapi/configurations/OperationResult.class
+com/orderapi/repositories/OrdersRepository.class
+com/orderapi/configurations/AppConfig.class
 com/orderapi/CustomerOrderRestApiApplication.class
+com/orderapi/controllers/CustomerController.class
+com/orderapi/services/OrdersService.class
+com/orderapi/services/CustomerService.class
+com/orderapi/services/ItemService.class
