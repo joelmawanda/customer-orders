@@ -1,5 +1,6 @@
 package com.orderapi.services;
 
+import com.orderapi.entities.Customer;
 import com.orderapi.entities.Item;
 import com.orderapi.entities.Orders;
 import com.orderapi.repositories.OrdersRepository;
@@ -19,7 +20,24 @@ public class OrdersService {
         log.info("creating new order...");
 
         Orders created_order = ordersRepository.save(order);
+        order.getItem().stream()
+                .forEach(item -> {
+                    itemService.createItem(item);
+                });
 
         return created_order;
     }
+
+//    public Customer createCustomer(Customer customer) {
+//        log.info("creating new order...");
+//
+//        Customer created_customer = customerRepository.save(customer);
+//
+//        customer.getOrders().stream()
+//                .forEach(order -> {
+//                    ordersService.createOrder(order);
+//                });
+//
+//        return created_customer;
+//    }
 }

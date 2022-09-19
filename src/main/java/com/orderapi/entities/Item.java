@@ -39,4 +39,9 @@ public class Item {
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
 //    @OnDelete(action = OnDeleteAction.CASCADE)
 //    private Set<Orders> orders = new HashSet<>();
+
+    //    @JsonBackReference(value = "customers-orders")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", foreignKey = @ForeignKey(name = "order_id_fk"), nullable = true)
+    private Orders order;
 }

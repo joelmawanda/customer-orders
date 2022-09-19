@@ -11,6 +11,8 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @AllArgsConstructor
@@ -53,5 +55,9 @@ public class Orders implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", foreignKey = @ForeignKey(name = "customer_id_fk"), nullable = true)
     private Customer customer;
+
+    //    @JsonManagedReference(value = "customer-orders")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order")
+    private Set<Item> item = new HashSet<>();
 
 }
