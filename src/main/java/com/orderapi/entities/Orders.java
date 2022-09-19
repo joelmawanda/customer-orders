@@ -49,7 +49,7 @@ public class Orders implements Serializable {
 //    @JoinColumn(name = "item_id", foreignKey = @ForeignKey(name = "item_id_fk"), nullable = true)
 //    private Item item;
 
-    @JsonBackReference(value = "customers-orders1")
+//    @JsonBackReference(value = "customers-orders")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", foreignKey = @ForeignKey(name = "customer_id_fk"), nullable = true)
     private Customer customer;
